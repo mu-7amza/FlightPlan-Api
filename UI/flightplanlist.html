@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>API Demo</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/client.js"></script>
+</head>
+<body>
+<div class="p-5 mb-4 bg-light" style="background-image: url('img/hsi.jpg'); color: #FFF">
+    <div class="container-fluid py-5">
+        <h1 class="display-4">Flight Plans Managment System </h1>
+        <p class="lead">This is the front end web page that we will be using as a visual interface with the API code we
+            are developing.</p>
+        <hr class="my-4">
+        <button class="btn btn-primary btn-lg mb-3">Flight Plans</button>
+        <a href="flightplan.html" class="btn btn-light btn-lg mb-3" role="button">Flight Plan Form</a>
+    </div>
+</div>
+<div class="container px-4">
+
+    <!-- // TODO: Alter this tag to call the javascript function that will load all flight plans -->
+    <button class="btn btn-primary btn-lg mb-5" onclick="get_all_flight_plans()">Load Flight Plans</button>
+
+    <div id="flight_plan_list">
+        <h5>Press the "Load Flight Plans" button above to get the list of available flight plans.</h5>
+    </div>
+</div>
+</body>
+</html>

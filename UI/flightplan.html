@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>API Demo</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/client.js"></script>
+</head>
+
+<body>
+<div class="p-5 mb-4 bg-light" style="background-image: url('img/hsi.jpg'); color: #FFF">
+    <div class="container-fluid py-5">
+        <h1 class="display-4">Flight Plans Managment System</h1>
+        <p class="lead">This is the front end web page that we will be using as a visual interface with the API code we
+            are developing.</p>
+        <hr class="my-4">
+        <a href="flightplanlist.html" class="btn btn-light btn-lg mb-3" role="button">Flight Plans</a>
+        <button class="btn btn-primary btn-lg mb-3">Flight Plan Form</button>
+    </div>
+</div>
+<div class="container px-4">
+    <div class="row">
+        <div class="col-4">
+            <div class="container">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" id="flightPlanId"
+                           placeholder="Flight Plan Id">
+                    <label for="flightPlanId">Flight Plan Id</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+
+            <!-- TODO: Alter this tag to call the javascript function that will load a flight plan -->
+            <button class="btn btn-primary btn-lg" style="height: 58px" type="button" onclick="load_flight_plan()">Load Flight Plan</button>
+        </div>
+        <div class="col-4">
+
+            <!-- TODO: Alter this tag to call the javascript function that will update a flight plan -->
+            <button class="btn btn-primary btn-lg" id="updateButton" style="height: 58px" type="button" onclick="update_flight_plan()"
+                    hidden>Update Flight Plan</button>
+
+            <!-- TODO: Alter this tag to call the javascript function that will file a flight plan -->
+            <button class="btn btn-primary btn-lg" id="fileButton" style="height: 58px" type="button" onclick="file_flight_plan()">File Flight Plan</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <form>
+
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-8 col-lg-6 gy-2">
+                <div class="container">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark" style="color: #FFF"><h6>Aircraft Information</h6></div>
+                        <div class="card-body">
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="tailNumber"
+                                       placeholder="Aircraft Identification">
+                                <label for="tailNumber">Aircraft Identification</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="aircraftType"
+                                       placeholder="Aircraft Type">
+                                <label for="aircraftType">Aircraft Type</label>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-6">
+                                    <div class="form-floating input-group">
+                                        <input type="number" class="form-control" id="airspeed"
+                                               placeholder="Airspeed">
+                                        <label for="airspeed">Airspeed</label>
+                                        <span class="input-group-text" id="knots">kts</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating input-group">
+                                        <input type="number" class="form-control" id="altitude"
+                                               placeholder="Altitude">
+                                        <label for="altitude">Altitude</label>
+                                        <span class="input-group-text" id="feet">feet</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-6 gy-2">
+                <div class="container">
+                    <div class="card border-dark">
+                        <div class="card-header bg-dark" style="color: #FFF"><h6>Flight Parameters</h6></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                               id="inlineVFR">
+                                        <label class="form-check-label" for="inlineVFR">VFR</label>
+                                    </div>
+                                    <div class="form-check form-check-inline my-4">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                               id="inlineIFR">
+                                        <label class="form-check-label" for="inlineIFR">IFR</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating input-group mb-3">
+                                        <input type="text" class="form-control" id="paxOnBoard"
+                                               placeholder="Souls On Board">
+                                        <label for="paxOnBoard">Passengers</label>
+                                        <span class="input-group-text" id="paxOnBoardLabel">On Board</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<hr>-->
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating input-group mb-3">
+                                        <input type="number" class="form-control" id="fuelHours"
+                                               placeholder="Fuel">
+                                        <label for="fuelHours">Fuel</label>
+                                        <span class="input-group-text" id="Fuel">hrs</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating input-group mb-3">
+                                        <input type="number" class="form-control" id="fuelMinutes"
+                                               placeholder="Fuel">
+                                        <label for="fuelMinutes">Fuel</label>
+                                        <span class="input-group-text" id="fuelMinsSpan">mins</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating input-group mb-3">
+                                        <input class="form-control" type="datetime-local" name="dtime"
+                                               id="departureTime"
+                                               value=@string.Format("{0:yyyy-MM-ddTHH:mm:ss}")
+                                               placeholder="Departure Time"/>
+                                        <label for="departureTime">Departure Time</label>
+                                        <span class="input-group-text" id="UTC">UTC</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating input-group mb-3">
+                                        <input class="form-control" type="datetime-local" name="atime" id="arrivalTime"
+                                               value=@string.Format("{0:yyyy-MM-ddTHH:mm:ss}") placeholder="Arrival Time">
+                                        <label for="arrivalTime">Arrival Time</label>
+                                        <span class="input-group-text" id="arrivalTimeSpan">UTC</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="container" style="height: 100%">
+                    <div class="card border-dark" style="height: 100%">
+                        <div class="card-header bg-dark" style="color: #FFF"><h6>Flight Routing</h6></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="departAirport"
+                                               placeholder="Departing">
+                                        <label for="departAirport">Departing From</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="arriveAirport"
+                                               placeholder="Departing">
+                                        <label for="arriveAirport">Arriving At</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Route" id="route"
+                                                      style="resize:none; height: 80px"></textarea>
+                                    <label for="route">Route</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="container" style="height: 100%">
+                    <div class="card border-dark" style="height: 100%">
+                        <div class="card-header bg-dark" style="color: #FFF"><h6>Flight Plan Remarks</h6></div>
+                        <div class="card-body">
+                            <div class="col-12 mb-3">
+                                <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Remarks" id="remarks"
+                                                  style="height: 80px"></textarea>
+                                    <label for="remarks">Remarks</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ZyEADn42xOMM/QVDJCx8pFPO6tLrCATrIzMZypwBMsw=",
+  "Source": "FlightPlanApi",
+  "BasePath": "_content/FlightPlanApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
